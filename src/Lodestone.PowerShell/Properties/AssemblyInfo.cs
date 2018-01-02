@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Lodestone.UnitTests")]
+[assembly: AssemblyTitle( "Lodestone.PowerShell" )]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Lodestone.UnitTests")]
+[assembly: AssemblyProduct( "Lodestone.PowerShell" )]
 [assembly: AssemblyCopyright( "Copyright © 2018 Alex Novak. All rights reserved." )]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e65191e2-8a90-477b-b9b6-1cdfe5cb3cd7")]
+[assembly: Guid("93eb5a9d-6009-477a-ba33-7c1cc380c788")]
 
 // Version information for an assembly consists of the following four values:
 //

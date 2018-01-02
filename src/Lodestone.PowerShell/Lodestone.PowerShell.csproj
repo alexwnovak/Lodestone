@@ -7,8 +7,8 @@
     <ProjectGuid>{93EB5A9D-6009-477A-BA33-7C1CC380C788}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lodestone</RootNamespace>
-    <AssemblyName>Lodestone</AssemblyName>
+    <RootNamespace>Lodestone.PowerShell</RootNamespace>
+    <AssemblyName>Lodestone.PowerShell</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
