@@ -76,6 +76,12 @@
   <ItemGroup>
     <Analyzer Include="..\packages\xunit.analyzers.0.7.0\analyzers\dotnet\cs\xunit.analyzers.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lodestone.PowerShell\Lodestone.PowerShell.csproj">
+      <Project>{93eb5a9d-6009-477a-ba33-7c1cc380c788}</Project>
+      <Name>Lodestone.PowerShell</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
