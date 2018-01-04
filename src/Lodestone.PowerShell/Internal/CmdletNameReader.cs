@@ -14,6 +14,13 @@ namespace Lodestone.PowerShell.Internal
          }
 
          var cmdletAttribute = (CmdletAttribute) type.GetCustomAttribute( typeof( CmdletAttribute ) );
+
+         if ( cmdletAttribute == null )
+         {
+            string message = string.Format( Resources.MissingCmdletAttribute, type.FullName );
+            throw new InvalidCmdletException( message );
+         }
+
          return $"{cmdletAttribute.VerbName}-{cmdletAttribute.NounName}";
       }
    }

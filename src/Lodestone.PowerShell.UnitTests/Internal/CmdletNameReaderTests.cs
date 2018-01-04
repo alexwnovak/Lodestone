@@ -23,5 +23,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          name.Should().Be( "Get-Resource" );
       }
+
+      [Fact]
+      public void ReadName_PassesTypeThatDoesNotHaveCmdletAttrbute_ThrowsInvalidCmdletException()
+      {
+         Action readName = () => CmdletNameReader.ReadName( typeof( int ) );
+
+         readName.ShouldThrow<InvalidCmdletException>();
+      }
    }
 }
