@@ -39,5 +39,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          readName.ShouldThrow<InvalidCmdletException>();
       }
+
+      [Fact]
+      public void ReadName_TypeInheritsPSCmdletWithAttribute_ReturnsName()
+      {
+         string name = CmdletNameReader.ReadName( typeof( InheritsPSCmdlet ) );
+
+         name.Should().Be( "Get-InheritsPSCmdlet" );
+      }
    }
 }
