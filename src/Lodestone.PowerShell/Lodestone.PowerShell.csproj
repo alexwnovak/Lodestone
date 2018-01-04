@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="CmdletHost.cs" />
     <Compile Include="HostFlow.cs" />
+    <Compile Include="Internal\CmdletNameReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
