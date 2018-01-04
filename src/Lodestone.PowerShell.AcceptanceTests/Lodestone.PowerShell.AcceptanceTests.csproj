@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CmdletHostFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="CmdletStubs\ReturnFiveCmdlet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CmdletHostFeatureSteps.cs" />
   </ItemGroup>
