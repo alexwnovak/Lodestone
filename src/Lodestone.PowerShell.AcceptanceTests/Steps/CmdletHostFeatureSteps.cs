@@ -9,6 +9,7 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       [When( @"I run host the ReturnFive cmdlet" )]
       public void WhenIRunHostTheReturnFiveCmdlet()
       {
+         
          ScenarioContext.Current.Pending();
       }
 
