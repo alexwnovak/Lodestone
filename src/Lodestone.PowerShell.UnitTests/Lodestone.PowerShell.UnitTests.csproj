@@ -78,6 +78,7 @@
     <Compile Include="CmdletStubs\DoesNotInheritCmdlet.cs" />
     <Compile Include="CmdletStubs\GetResourceStub.cs" />
     <Compile Include="CmdletStubs\InheritsPSCmdlet.cs" />
+    <Compile Include="CmdletStubs\InheritsPSCmdletWithNoAttribute.cs" />
     <Compile Include="Internal\CmdletNameReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

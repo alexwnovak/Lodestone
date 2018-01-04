@@ -47,5 +47,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          name.Should().Be( "Get-InheritsPSCmdlet" );
       }
+
+      [Fact]
+      public void ReadName_TypeInheritsPSCmdletButHasNoCmdletAttribute_ThrowsInvalidCmdletException()
+      {
+         Action readName = () => CmdletNameReader.ReadName( typeof( InheritsPSCmdletWithNoAttribute ) );
+
+         readName.ShouldThrow<InvalidCmdletException>();
+      }
    }
 }
