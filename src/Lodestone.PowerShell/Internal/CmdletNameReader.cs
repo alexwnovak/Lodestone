@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Management.Automation;
+using System.Reflection;
 
 namespace Lodestone.PowerShell.Internal
 {
@@ -11,7 +13,8 @@ namespace Lodestone.PowerShell.Internal
             throw new ArgumentException( nameof( type ) );
          }
 
-         throw new NotImplementedException();
+         var cmdletAttribute = (CmdletAttribute) type.GetCustomAttribute( typeof( CmdletAttribute ) );
+         return $"{cmdletAttribute.VerbName}-{cmdletAttribute.NounName}";
       }
    }
 }
