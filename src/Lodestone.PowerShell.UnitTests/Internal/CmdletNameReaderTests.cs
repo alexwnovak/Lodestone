@@ -31,5 +31,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          readName.ShouldThrow<InvalidCmdletException>();
       }
+
+      [Fact]
+      public void ReadName_TypeHasCmdletAttributeButDoesNotInheritCmdlet_ThrowsInvalidCmdletException()
+      {
+         Action readName = () => CmdletNameReader.ReadName( typeof( DoesNotInheritCmdlet ) );
+
+         readName.ShouldThrow<InvalidCmdletException>();
+      }
    }
 }

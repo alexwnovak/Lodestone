@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CmdletStubs\DoesNotInheritCmdlet.cs" />
     <Compile Include="CmdletStubs\GetResourceStub.cs" />
     <Compile Include="Internal\CmdletNameReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

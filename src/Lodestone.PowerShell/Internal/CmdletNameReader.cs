@@ -21,6 +21,12 @@ namespace Lodestone.PowerShell.Internal
             throw new InvalidCmdletException( message );
          }
 
+         if ( type.BaseType != typeof( Cmdlet ) )
+         {
+            string message = string.Format( Resources.MessageCmdletBaseType, type.FullName );
+            throw new InvalidCmdletException( message );
+         }
+
          return $"{cmdletAttribute.VerbName}-{cmdletAttribute.NounName}";
       }
    }
