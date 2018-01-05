@@ -16,12 +16,6 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
          _returnValue = CmdletHost.For<ReturnFiveCmdlet>().Run();
       }
 
-      [Then( @"it should return (.*)" )]
-      public void ThenTheItShouldReturn( object expectedReturnValue )
-      {
-         _returnValue.Should().Be( expectedReturnValue );
-      }
-
       [Given( @"I host the ConcatString cmdlet" )]
       public void GivenIHostTheConcatStringCmdlet()
       {
@@ -38,6 +32,12 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       public void WhenIRunTheCmdlet()
       {
          _returnValue = _concatStringFlow.Run();
+      }
+
+      [Then( @"it should return (.*)" )]
+      public void ThenTheItShouldReturn( object expectedReturnValue )
+      {
+         _returnValue.Should().Be( expectedReturnValue );
       }
    }
 }
