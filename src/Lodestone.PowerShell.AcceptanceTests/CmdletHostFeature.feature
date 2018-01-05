@@ -5,5 +5,5 @@
 
 @Acceptance
 Scenario: Running a cmdlet with a simple return value
-   When I run host the ReturnFive cmdlet
-   Then the it should return 5
+   When I host and run the ReturnFive cmdlet
+   Then it should return 5

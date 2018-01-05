@@ -83,9 +83,9 @@ namespace Lodestone.PowerShell.AcceptanceTests
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-   testRunner.When("I run host the ReturnFive cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.When("I host and run the ReturnFive cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
-   testRunner.Then("the it should return 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.Then("it should return 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -9,13 +9,13 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
    {
       private int _returnValue;
 
-      [When( @"I run host the ReturnFive cmdlet" )]
+      [When( @"I host and run the ReturnFive cmdlet" )]
       public void WhenIRunHostTheReturnFiveCmdlet()
       {
          _returnValue = (int) CmdletHost.For<ReturnFiveCmdlet>().Run();
       }
 
-      [Then( @"the it should return (.*)" )]
+      [Then( @"it should return (.*)" )]
       public void ThenTheItShouldReturn( int expectedReturnValue )
       {
          _returnValue.Should().Be( 5 );
