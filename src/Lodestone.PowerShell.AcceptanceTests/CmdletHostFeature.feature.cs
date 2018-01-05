@@ -90,6 +90,28 @@ this.ScenarioSetup(scenarioInfo);
             this.ScenarioCleanup();
         }
         
+        [Xunit.FactAttribute(DisplayName="Running a cmdlet that does string concatenation")]
+        [Xunit.TraitAttribute("FeatureTitle", "CmdletHost Feature")]
+        [Xunit.TraitAttribute("Description", "Running a cmdlet that does string concatenation")]
+        [Xunit.TraitAttribute("Category", "Acceptance")]
+        public virtual void RunningACmdletThatDoesStringConcatenation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Running a cmdlet that does string concatenation", new string[] {
+                        "Acceptance"});
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 13
+   testRunner.Given("I host the ConcatString cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+   testRunner.And("I pass Test for the value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+   testRunner.When("I run the cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+   testRunner.Then("it should return Received Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.2.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable

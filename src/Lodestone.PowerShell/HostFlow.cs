@@ -1,4 +1,6 @@
-﻿using System.Management.Automation;
+﻿using System;
+using System.Linq.Expressions;
+using System.Management.Automation;
 using Lodestone.PowerShell.Internal;
 
 namespace Lodestone.PowerShell
@@ -7,6 +9,11 @@ namespace Lodestone.PowerShell
    {
       internal HostFlow()
       {
+      }
+
+      public HostFlow<TCmdletType> With<TParameterType>( Expression<Func<TCmdletType, TParameterType>> property, TParameterType value )
+      {
+         return this;
       }
 
       public object Run()
