@@ -55,5 +55,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          readName.ShouldThrow<InvalidCmdletException>();
       }
+
+      [Fact]
+      public void ReadName_TypeIsWellFormedCmdletButInternal_ThrowsInvalidCmdletException()
+      {
+         Action readName = () => CmdletNameReader.ReadName( typeof( InternalCmdlet ) );
+
+         readName.ShouldThrow<InvalidCmdletException>();
+      }
    }
 }
