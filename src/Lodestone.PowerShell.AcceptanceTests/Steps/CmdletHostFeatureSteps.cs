@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentAssertions;
+using Lodestone.PowerShell.AcceptanceTests.CmdletStubs;
 using TechTalk.SpecFlow;
 
 namespace Lodestone.PowerShell.AcceptanceTests.Steps
@@ -6,17 +7,18 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
    [Binding]
    public class CmdletHostFeatureSteps
    {
+      private int _returnValue;
+
       [When( @"I run host the ReturnFive cmdlet" )]
       public void WhenIRunHostTheReturnFiveCmdlet()
       {
-         
-         ScenarioContext.Current.Pending();
+         _returnValue = (int) CmdletHost.For<ReturnFiveCmdlet>().Run();
       }
 
       [Then( @"the it should return (.*)" )]
       public void ThenTheItShouldReturn( int expectedReturnValue )
       {
-         ScenarioContext.Current.Pending();
+         _returnValue.Should().Be( 5 );
       }
    }
 }
