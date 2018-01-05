@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System.ComponentModel;
+using TechTalk.SpecFlow;
 using FluentAssertions;
 using Lodestone.PowerShell.AcceptanceTests.CmdletStubs;
 
@@ -9,6 +10,17 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
    {
       private HostFlow<ConcatStringCmdlet> _concatStringFlow;
       private object _returnValue;
+
+      [StepArgumentTransformation]
+      public object GenericTransform( object value )
+      {
+         if ( int.TryParse( value.ToString(), out int result ) )
+         {
+            return result;
+         }
+
+         return value;
+      }
 
       [When( @"I host and run the ReturnFive cmdlet" )]
       public void WhenIRunHostTheReturnFiveCmdlet()
