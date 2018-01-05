@@ -3,7 +3,7 @@
 namespace Lodestone.PowerShell.UnitTests.CmdletStubs
 {
    [Cmdlet( VerbsCommon.Get, "IntentionallyDoesNotInheritCmdlet") ]
-   internal class DoesNotInheritCmdlet
+   public class DoesNotInheritCmdlet
    {
    }
 }

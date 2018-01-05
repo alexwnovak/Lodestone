@@ -3,7 +3,7 @@
 namespace Lodestone.PowerShell.UnitTests.CmdletStubs
 {
    [Cmdlet( VerbsCommon.Get, "InheritsPSCmdlet" )]
-   internal class InheritsPSCmdlet : PSCmdlet
+   public class InheritsPSCmdlet : PSCmdlet
    {
    }
 }
