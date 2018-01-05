@@ -5,6 +5,7 @@ namespace Lodestone.PowerShell.AcceptanceTests.CmdletStubs
    [Cmdlet( "Concat", "String" )]
    public class ConcatStringCmdlet : Cmdlet
    {
+      [Parameter]
       public string Value
       {
          get;
