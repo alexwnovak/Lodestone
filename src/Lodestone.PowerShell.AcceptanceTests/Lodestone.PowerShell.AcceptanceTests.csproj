@@ -80,6 +80,7 @@
     <Compile Include="CmdletStubs\ReturnFiveCmdlet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CmdletHostFeatureSteps.cs" />
+    <Compile Include="Infrastructure\CmdletStepContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -98,6 +99,7 @@
       <Name>Lodestone.PowerShell</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
