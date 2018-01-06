@@ -10,39 +10,40 @@ namespace Lodestone.PowerShell.Internal
       {
          if ( !( property.Body is MemberExpression ) )
          {
-            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
-            throw new InvalidSetExpressionException( message );
+            ThrowInvalidSetExpression( typeof( T ).FullName );
          }
          
          var memberExpression = (MemberExpression) property.Body;
 
          if ( memberExpression.Member.MemberType != MemberTypes.Property )
          {
-            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
-            throw new InvalidSetExpressionException( message );
+            ThrowInvalidSetExpression( typeof( T ).FullName );
          }
 
          if ( memberExpression.Member.DeclaringType != typeof( T ) )
          {
-            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
-            throw new InvalidSetExpressionException( message );
+            ThrowInvalidSetExpression( typeof( T ).FullName );
          }
 
          var propertyInfo = memberExpression.Member.ReflectedType.GetProperty( memberExpression.Member.Name, BindingFlags.Public | BindingFlags.Instance );
 
          if ( propertyInfo == null )
          {
-            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
-            throw new InvalidSetExpressionException( message );
+            ThrowInvalidSetExpression( typeof( T ).FullName );
          }
 
          if ( propertyInfo.GetSetMethod() == null )
          {
-            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
-            throw new InvalidSetExpressionException( message );
+            ThrowInvalidSetExpression( typeof( T ).FullName );
          }
 
          return memberExpression.Member.Name;
+      }
+
+      private static void ThrowInvalidSetExpression( string typeName )
+      {
+         string message = string.Format( Resources.InvalidSetExpression, typeName );
+         throw new InvalidSetExpressionException( message );
       }
    }
 }
