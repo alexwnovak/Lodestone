@@ -48,6 +48,7 @@
     <Compile Include="HostFlow.cs" />
     <Compile Include="Internal\CmdletNameReader.cs" />
     <Compile Include="Internal\Resources.cs" />
+    <Compile Include="Internal\PropertyExpressionReader.cs" />
     <Compile Include="InvalidCmdletException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -81,6 +81,7 @@
     <Compile Include="CmdletStubs\InheritsPSCmdletWithNoAttribute.cs" />
     <Compile Include="CmdletStubs\InternalCmdlet.cs" />
     <Compile Include="Internal\CmdletNameReaderTests.cs" />
+    <Compile Include="Internal\PropertyExpressionReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
