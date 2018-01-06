@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Lodestone.PowerShell</id>
+    <version>0.9</version>
+    <authors>Alex Novak</authors>
+    <owners>alexwnovak</owners>
+    <licenseUrl>https://github.com/alexwnovak/LodeStone/blob/master/LICENSE</licenseUrl>
+    <iconUrl>https://github.com/alexwnovak/LodeStone.PowerShell/raw/master/src/Lodestone.PowerShell/icon.png</iconUrl>
+    <projectUrl>https://github.com/alexwnovak/LodeStone</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A toolkit for integration testing PowerShell cmdlets.</description>
+    <releaseNotes>Version 0.9
+* Initial release
+    </releaseNotes>
+    <copyright>Copyright © Alex Novak 2018. All rights reserved.</copyright>
+    <tags>powershell cmdlets automated integration unit testing</tags>
+  </metadata>
+  <files>
+    <file src="src\Lodestone.PowerShell\bin\$configuration$\Lodestone.PowerShell.dll" target="lib\net461" />
+    <file src="src\Lodestone.PowerShell\bin\$configuration$\Lodestone.PowerShell.xml" target="lib\net461" />
+    <file src="src\Lodestone.PowerShell\bin\$configuration$\System.Management.Automation.dll" target="lib\net461" />
+  </files>
+</package>
