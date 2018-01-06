@@ -2,7 +2,7 @@
 {
    internal class PropertyStub
    {
-      public int PublicField;
+      public int PublicField = 5;
 
       internal int InternalProperty
       {
