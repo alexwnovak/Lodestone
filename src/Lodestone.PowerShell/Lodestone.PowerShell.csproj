@@ -50,6 +50,7 @@
     <Compile Include="Internal\Resources.cs" />
     <Compile Include="Internal\PropertyExpressionReader.cs" />
     <Compile Include="InvalidCmdletException.cs" />
+    <Compile Include="InvalidSetExpressionException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
