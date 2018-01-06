@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Management.Automation;
 using Lodestone.PowerShell.Internal;
+using MSPowerShell = System.Management.Automation.PowerShell;
 
 namespace Lodestone.PowerShell
 {
@@ -64,23 +65,28 @@ namespace Lodestone.PowerShell
       /// </exception>
       public object Run()
       {
-         using ( var powerShell = System.Management.Automation.PowerShell.Create() )
+         using ( var powerShellHost = MSPowerShell.Create() )
          {
-            powerShell.AddCommand( "Import-Module" ).AddParameter( "Assembly", typeof( TCmdletType ).Assembly );
-            powerShell.Invoke();
-            powerShell.Commands.Clear();
+            LoadCmdletModule( powerShellHost );
 
             string cmdletName = CmdletNameReader.ReadName( typeof( TCmdletType ) );
-            var command = powerShell.AddCommand( cmdletName );
+            var command = powerShellHost.AddCommand( cmdletName );
 
             foreach ( var keyValuePair in _parameterDictionary )
             {
                command.AddParameter( keyValuePair.Key, keyValuePair.Value );
             }
 
-            var output = powerShell.Invoke();
+            var output = powerShellHost.Invoke();
             return output[0].BaseObject;
          }
+      }
+
+      private static void LoadCmdletModule( MSPowerShell powerShellHost )
+      {
+         powerShellHost.AddCommand( "Import-Module" ).AddParameter( "Assembly", typeof( TCmdletType ).Assembly );
+         powerShellHost.Invoke();
+         powerShellHost.Commands.Clear();
       }
    }
 }
