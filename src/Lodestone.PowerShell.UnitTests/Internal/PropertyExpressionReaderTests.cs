@@ -10,7 +10,7 @@ namespace Lodestone.PowerShell.UnitTests.Internal
       [Fact]
       public void GetName_ExpressionRefersToProperty_GetPropertyName()
       {
-         string name = PropertyExpressionReader.Validate<DateTime, int>( dt => dt.Hour );
+         string name = PropertyExpressionReader.GetName<DateTime, int>( dt => dt.Hour );
 
          name.Should().Be( nameof( DateTime.Hour ) );
       }
@@ -18,7 +18,7 @@ namespace Lodestone.PowerShell.UnitTests.Internal
       [Fact]
       public void GetName_ExpressionRefersToLiteralValue_ThrowsInvalidSetExpressionException()
       {
-         Action getName = () => PropertyExpressionReader.Validate<DateTime, int>( dt => 5 );
+         Action getName = () => PropertyExpressionReader.GetName<DateTime, int>( dt => 5 );
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }
