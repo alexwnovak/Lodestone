@@ -29,6 +29,10 @@ namespace Lodestone.PowerShell
       /// <returns>
       /// The same <seealso cref="HostFlow{TCmdletType}"/> to allow further method chaining.
       /// </returns>
+      /// <exception cref="InvalidSetExpressionException">
+      /// Thrown if the <seealso cref="property"/> parameter expression doesn't indicate a public,
+      /// getter/setter instance property that belongs to the cmdlet type.
+      /// </exception>
       /// <remarks>
       /// The <seealso cref="property" /> parameter is a compiler-safe way of specifying the property
       /// that should be assigned. The usage is an lambda that points to the property:
