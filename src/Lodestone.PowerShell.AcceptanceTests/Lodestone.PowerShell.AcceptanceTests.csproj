@@ -81,6 +81,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\CmdletHostFeatureSteps.cs" />
     <Compile Include="Infrastructure\CmdletStepContext.cs" />
+    <Compile Include="Transformations\GenericObjectTransformation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

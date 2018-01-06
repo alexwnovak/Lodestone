@@ -10,17 +10,6 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
    {
       private readonly CmdletStepContext _cmdletStepContext = new CmdletStepContext();
 
-      [StepArgumentTransformation]
-      public object GenericTransform( object value )
-      {
-         if ( int.TryParse( value.ToString(), out int result ) )
-         {
-            return result;
-         }
-
-         return value;
-      }
-
       [Given( @"I host the ReturnFive cmdlet" )]
       public void GivenIHostTheReturnFiveCmdlet()
       {
