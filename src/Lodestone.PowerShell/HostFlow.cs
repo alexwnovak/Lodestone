@@ -52,6 +52,13 @@ namespace Lodestone.PowerShell
       /// (specified by the <seealso cref="With{TParameterType}" /> method), and executes the cmdlet.
       /// </summary>
       /// <returns>Anything that was written to the object pipeline.</returns>
+      /// <exception cref="InvalidCmdletException">
+      /// Thrown if the cmdlet type can't be run, typically because it doesn't conform to the cmdlet
+      /// requirements. This is typically:
+      ///    - The class inherits <seealso cref="Cmdlet"/> or <seealso cref="PSCmdlet"/>
+      ///    - The class has the <seealso cref="CmdletAttribute"/> attribute
+      ///    - The class is public
+      /// </exception>
       public object Run()
       {
          using ( var powerShell = System.Management.Automation.PowerShell.Create() )
