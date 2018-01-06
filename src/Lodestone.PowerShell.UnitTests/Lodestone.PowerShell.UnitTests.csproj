@@ -75,11 +75,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CmdletStubs\DoesNotInheritCmdlet.cs" />
-    <Compile Include="CmdletStubs\GetResourceStub.cs" />
-    <Compile Include="CmdletStubs\InheritsPSCmdlet.cs" />
-    <Compile Include="CmdletStubs\InheritsPSCmdletWithNoAttribute.cs" />
-    <Compile Include="CmdletStubs\InternalCmdlet.cs" />
+    <Compile Include="Stubs\Cmdlets\DoesNotInheritCmdlet.cs" />
+    <Compile Include="Stubs\Cmdlets\GetResourceStub.cs" />
+    <Compile Include="Stubs\Cmdlets\InheritsPSCmdlet.cs" />
+    <Compile Include="Stubs\Cmdlets\InheritsPSCmdletWithNoAttribute.cs" />
+    <Compile Include="Stubs\Cmdlets\InternalCmdlet.cs" />
     <Compile Include="Internal\CmdletNameReaderTests.cs" />
     <Compile Include="Internal\PropertyExpressionReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,7 +2,7 @@
 using Xunit;
 using FluentAssertions;
 using Lodestone.PowerShell.Internal;
-using Lodestone.PowerShell.UnitTests.CmdletStubs;
+using Lodestone.PowerShell.UnitTests.Stubs.Cmdlets;
 
 namespace Lodestone.PowerShell.UnitTests.Internal
 {
