@@ -3,3 +3,7 @@
 # Lodestone
 
 A toolkit for integration testing real resources.
+
+## Attributions
+
+jewel by Ben Davis from the Noun Project.
