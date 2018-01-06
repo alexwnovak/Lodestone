@@ -14,5 +14,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          name.Should().Be( nameof( DateTime.Hour ) );
       }
+
+      [Fact]
+      public void GetName_ExpressionRefersToLiteralValue_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.Validate<DateTime, int>( dt => 5 );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
    }
 }
