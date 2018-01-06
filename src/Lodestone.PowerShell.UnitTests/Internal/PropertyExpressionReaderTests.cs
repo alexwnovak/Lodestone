@@ -22,5 +22,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }
+
+      [Fact]
+      public void GetName_ExpressionRefersToMethod_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.GetName<DateTime, int>( dt => dt.GetHashCode() );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
    }
 }
