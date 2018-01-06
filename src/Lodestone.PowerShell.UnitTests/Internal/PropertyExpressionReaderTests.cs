@@ -48,5 +48,13 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }
+
+      [Fact]
+      public void GetName_ExpressionRefersToStaticProperty_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.GetName<PropertyStub, string>( ps => PropertyStub.StaticProperty );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
    }
 }

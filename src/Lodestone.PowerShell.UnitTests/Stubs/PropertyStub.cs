@@ -9,5 +9,11 @@
          get;
          set;
       }
+
+      public static string StaticProperty
+      {
+         get;
+         set;
+      }
    }
 }
