@@ -15,15 +15,9 @@ namespace Lodestone.PowerShell.AcceptanceTests.Infrastructure
          _runAction = () => ( (HostFlow<TCmdletType>) _hostFlow ).Run();
       }
 
-      public void With<TCmdletType, TParameterType>( Expression<Func<TCmdletType, TParameterType>> property, TParameterType value )
-         where TCmdletType : Cmdlet
-      {
+      public void With<TCmdletType, TParameterType>( Expression<Func<TCmdletType, TParameterType>> property, TParameterType value ) where TCmdletType : Cmdlet =>
          ( (HostFlow<TCmdletType>) _hostFlow ).With( property, value );
-      }
 
-      public object Run()
-      {
-         return _runAction();
-      }
+      public object Run() => _runAction();
    }
 }
