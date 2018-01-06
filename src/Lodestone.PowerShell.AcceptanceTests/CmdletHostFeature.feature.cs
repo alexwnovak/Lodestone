@@ -83,8 +83,10 @@ namespace Lodestone.PowerShell.AcceptanceTests
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-   testRunner.When("I host and run the ReturnFive cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.Given("I host the ReturnFive cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
+   testRunner.When("I run the cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
    testRunner.Then("it should return 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -98,15 +100,15 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Running a cmdlet that does string concatenation", new string[] {
                         "Acceptance"});
-#line 12
-this.ScenarioSetup(scenarioInfo);
 #line 13
-   testRunner.Given("I host the ConcatString cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 14
-   testRunner.And("I pass Test for the value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.Given("I host the ConcatString cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
-   testRunner.When("I run the cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+   testRunner.And("I pass Test for the value", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
+   testRunner.When("I run the cmdlet", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
    testRunner.Then("it should return Received Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

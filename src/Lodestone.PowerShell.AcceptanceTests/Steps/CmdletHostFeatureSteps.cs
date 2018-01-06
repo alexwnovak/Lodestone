@@ -1,55 +1,43 @@
-﻿using System.ComponentModel;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using FluentAssertions;
 using Lodestone.PowerShell.AcceptanceTests.CmdletStubs;
+using Lodestone.PowerShell.AcceptanceTests.Infrastructure;
 
 namespace Lodestone.PowerShell.AcceptanceTests.Steps
 {
    [Binding]
    public class CmdletHostFeatureSteps
    {
-      private HostFlow<ConcatStringCmdlet> _concatStringFlow;
-      private object _returnValue;
+      private readonly CmdletStepContext _cmdletStepContext = new CmdletStepContext();
 
-      [StepArgumentTransformation]
-      public object GenericTransform( object value )
+      [Given( @"I host the ReturnFive cmdlet" )]
+      public void GivenIHostTheReturnFiveCmdlet()
       {
-         if ( int.TryParse( value.ToString(), out int result ) )
-         {
-            return result;
-         }
-
-         return value;
-      }
-
-      [When( @"I host and run the ReturnFive cmdlet" )]
-      public void WhenIRunHostTheReturnFiveCmdlet()
-      {
-         _returnValue = CmdletHost.For<ReturnFiveCmdlet>().Run();
+         _cmdletStepContext.Use<ReturnFiveCmdlet>();
       }
 
       [Given( @"I host the ConcatString cmdlet" )]
       public void GivenIHostTheConcatStringCmdlet()
       {
-         _concatStringFlow = CmdletHost.For<ConcatStringCmdlet>();
+         _cmdletStepContext.Use<ConcatStringCmdlet>();
       }
 
       [Given( @"I pass (.*) for the value" )]
       public void GivenIPassTestForTheValue( string value )
       {
-         _concatStringFlow = _concatStringFlow.With( c => c.Value, value );
+         _cmdletStepContext.Set<ConcatStringCmdlet, string>( csc => csc.Value, value );
       }
 
       [When( @"I run the cmdlet" )]
       public void WhenIRunTheCmdlet()
       {
-         _returnValue = _concatStringFlow.Run();
+         _cmdletStepContext.Run();
       }
 
       [Then( @"it should return (.*)" )]
       public void ThenTheItShouldReturn( object expectedReturnValue )
       {
-         _returnValue.Should().Be( expectedReturnValue );
+         _cmdletStepContext.CmdletOutput.Should().Be( expectedReturnValue );
       }
    }
 }
