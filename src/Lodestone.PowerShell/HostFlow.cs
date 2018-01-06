@@ -39,8 +39,7 @@ namespace Lodestone.PowerShell
       /// </remarks>
       public HostFlow<TCmdletType> With<TParameterType>( Expression<Func<TCmdletType, TParameterType>> property, TParameterType value )
       {
-         var member = (MemberExpression) property.Body;
-         string propertyName = member.Member.Name;
+         string propertyName = PropertyExpressionReader.GetName( property );
 
          _parameterDictionary[propertyName] = value;
 
