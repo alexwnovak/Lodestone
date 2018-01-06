@@ -3,6 +3,10 @@ using System.Runtime.Serialization;
 
 namespace Lodestone.PowerShell
 {
+   /// <summary>
+   /// Represents an error that occurs when configuring a cmdlet property, when the expression
+   /// does not indicate a public, getter/setter property that belongs to the specified cmdlet type.
+   /// </summary>
    [Serializable]
    public class InvalidSetExpressionException : Exception
    {
@@ -34,6 +38,18 @@ namespace Lodestone.PowerShell
       {
       }
 
+
+      /// <summary>
+      /// Initializes a new instance of the InvalidCmdletException class.
+      /// </summary>
+      /// <param name="info">
+      /// The <seealso cref="SerializationInfo"></seealso> that holds the serialized object
+      /// data about the exception being thrown.
+      /// </param>
+      /// <param name="context">
+      /// The <seealso cref="StreamingContext"/> that contains contextual information
+      /// about the source or destination.
+      /// </param>
       protected InvalidSetExpressionException( SerializationInfo info, StreamingContext context )
          : base( info, context )
       {

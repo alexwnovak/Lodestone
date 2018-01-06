@@ -37,6 +37,17 @@ namespace Lodestone.PowerShell
       {
       }
 
+      /// <summary>
+      /// Initializes a new instance of the InvalidCmdletException class.
+      /// </summary>
+      /// <param name="info">
+      /// The <seealso cref="SerializationInfo"></seealso> that holds the serialized object
+      /// data about the exception being thrown.
+      /// </param>
+      /// <param name="context">
+      /// The <seealso cref="StreamingContext"/> that contains contextual information
+      /// about the source or destination.
+      /// </param>
       protected InvalidCmdletException( SerializationInfo info, StreamingContext context )
          : base( info, context )
       {
