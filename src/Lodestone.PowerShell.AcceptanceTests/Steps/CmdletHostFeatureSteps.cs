@@ -9,7 +9,6 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
    public class CmdletHostFeatureSteps
    {
       private readonly CmdletStepContext _cmdletStepContext = new CmdletStepContext();
-      private object _returnValue;
 
       [StepArgumentTransformation]
       public object GenericTransform( object value )
@@ -20,12 +19,6 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
          }
 
          return value;
-      }
-
-      [When( @"I host and run the ReturnFive cmdlet" )]
-      public void WhenIRunHostTheReturnFiveCmdlet()
-      {
-         _returnValue = CmdletHost.For<ReturnFiveCmdlet>().Run();
       }
 
       [Given( @"I host the ReturnFive cmdlet" )]
@@ -49,13 +42,13 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       [When( @"I run the cmdlet" )]
       public void WhenIRunTheCmdlet()
       {
-         _returnValue = _cmdletStepContext.Run();
+         _cmdletStepContext.Run();
       }
 
       [Then( @"it should return (.*)" )]
       public void ThenTheItShouldReturn( object expectedReturnValue )
       {
-         _returnValue.Should().Be( expectedReturnValue );
+         _cmdletStepContext.CmdletOutput.Should().Be( expectedReturnValue );
       }
    }
 }

@@ -9,6 +9,12 @@ namespace Lodestone.PowerShell.AcceptanceTests.Infrastructure
       private object _hostFlow;
       private Func<object> _runAction;
 
+      public object CmdletOutput
+      {
+         get;
+         private set;
+      }
+
       public void Use<TCmdletType>() where TCmdletType : Cmdlet
       {
          _hostFlow = CmdletHost.For<TCmdletType>();
@@ -18,6 +24,6 @@ namespace Lodestone.PowerShell.AcceptanceTests.Infrastructure
       public void Set<TCmdletType, TParameterType>( Expression<Func<TCmdletType, TParameterType>> property, TParameterType value ) where TCmdletType : Cmdlet =>
          ( (HostFlow<TCmdletType>) _hostFlow ).With( property, value );
 
-      public object Run() => _runAction();
+      public void Run() => CmdletOutput = _runAction();
    }
 }
