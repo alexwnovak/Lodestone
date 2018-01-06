@@ -2,12 +2,12 @@
 using Xunit;
 using FluentAssertions;
 using Lodestone.PowerShell.Internal;
+using Lodestone.PowerShell.UnitTests.Stubs;
 
 namespace Lodestone.PowerShell.UnitTests.Internal
 {
    public class PropertyExpressionReaderTests
    {
-      public int PublicField;
 
       [Fact]
       public void GetName_ExpressionRefersToProperty_GetPropertyName()
@@ -36,7 +36,15 @@ namespace Lodestone.PowerShell.UnitTests.Internal
       [Fact]
       public void GetName_ExpressionRefersToPublicField_ThrowsInvalidSetExpressionException()
       {
-         Action getName = () => PropertyExpressionReader.GetName<PropertyExpressionReaderTests, int>( dt => dt.PublicField );
+         Action getName = () => PropertyExpressionReader.GetName<PropertyStub, int>( ps => ps.PublicField );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
+
+      [Fact]
+      public void GetName_ExpressionRefersToNonPublicProperty_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.GetName<PropertyStub, int>( ps => ps.InternalProperty );
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }

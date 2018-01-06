@@ -20,6 +20,13 @@ namespace Lodestone.PowerShell.Internal
             throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
          }
 
+         var propertyInfo = memberExpression.Member.ReflectedType.GetProperty( memberExpression.Member.Name, BindingFlags.Public | BindingFlags.Instance );
+
+         if ( propertyInfo == null )
+         {
+            throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
+         }
+
          return memberExpression.Member.Name;
       }
    }

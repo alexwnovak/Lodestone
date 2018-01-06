@@ -83,6 +83,7 @@
     <Compile Include="Internal\CmdletNameReaderTests.cs" />
     <Compile Include="Internal\PropertyExpressionReaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Stubs\PropertyStub.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lodestone.PowerShell\Lodestone.PowerShell.csproj">
