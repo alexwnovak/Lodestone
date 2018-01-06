@@ -7,6 +7,8 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 {
    public class PropertyExpressionReaderTests
    {
+      public int PublicField;
+
       [Fact]
       public void GetName_ExpressionRefersToProperty_GetPropertyName()
       {
@@ -27,6 +29,14 @@ namespace Lodestone.PowerShell.UnitTests.Internal
       public void GetName_ExpressionRefersToMethod_ThrowsInvalidSetExpressionException()
       {
          Action getName = () => PropertyExpressionReader.GetName<DateTime, int>( dt => dt.GetHashCode() );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
+
+      [Fact]
+      public void GetName_ExpressionRefersToPublicField_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.GetName<PropertyExpressionReaderTests, int>( dt => dt.PublicField );
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }

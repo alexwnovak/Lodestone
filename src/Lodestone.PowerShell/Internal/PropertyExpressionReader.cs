@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace Lodestone.PowerShell.Internal
 {
@@ -11,9 +12,15 @@ namespace Lodestone.PowerShell.Internal
          {
             throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
          }
+         
+         var memberExpression = (MemberExpression) property.Body;
 
-         var member = (MemberExpression) property.Body;
-         return member.Member.Name;
+         if ( memberExpression.Member.MemberType != MemberTypes.Property )
+         {
+            throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
+         }
+
+         return memberExpression.Member.Name;
       }
    }
 }
