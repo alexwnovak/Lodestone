@@ -31,19 +31,19 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       [Given( @"I host the ReturnFive cmdlet" )]
       public void GivenIHostTheReturnFiveCmdlet()
       {
-         _cmdletStepContext.For<ReturnFiveCmdlet>();
+         _cmdletStepContext.Use<ReturnFiveCmdlet>();
       }
 
       [Given( @"I host the ConcatString cmdlet" )]
       public void GivenIHostTheConcatStringCmdlet()
       {
-         _cmdletStepContext.For<ConcatStringCmdlet>();
+         _cmdletStepContext.Use<ConcatStringCmdlet>();
       }
 
       [Given( @"I pass (.*) for the value" )]
       public void GivenIPassTestForTheValue( string value )
       {
-         _cmdletStepContext.With<ConcatStringCmdlet, string>( c => c.Value, value );
+         _cmdletStepContext.Set<ConcatStringCmdlet, string>( csc => csc.Value, value );
       }
 
       [When( @"I run the cmdlet" )]
