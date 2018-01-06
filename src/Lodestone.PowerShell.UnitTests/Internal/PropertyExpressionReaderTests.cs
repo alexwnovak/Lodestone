@@ -8,13 +8,12 @@ namespace Lodestone.PowerShell.UnitTests.Internal
 {
    public class PropertyExpressionReaderTests
    {
-
       [Fact]
       public void GetName_ExpressionRefersToProperty_GetPropertyName()
       {
-         string name = PropertyExpressionReader.GetName<DateTime, int>( dt => dt.Hour );
+         string name = PropertyExpressionReader.GetName<PropertyStub, int>( ps => ps.ValidProperty );
 
-         name.Should().Be( nameof( DateTime.Hour ) );
+         name.Should().Be( nameof( PropertyStub.ValidProperty ) );
       }
 
       [Fact]
@@ -53,6 +52,24 @@ namespace Lodestone.PowerShell.UnitTests.Internal
       public void GetName_ExpressionRefersToStaticProperty_ThrowsInvalidSetExpressionException()
       {
          Action getName = () => PropertyExpressionReader.GetName<PropertyStub, string>( ps => PropertyStub.StaticProperty );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
+
+      [Fact]
+      public void GetName_ExpressionRefersToPropertyWithGetterOnly_ThrowsInvalidSetExpressionException()
+      {
+         Action getName = () => PropertyExpressionReader.GetName<PropertyStub, int>( ps => ps.GetterOnlyProperty );
+
+         getName.ShouldThrow<InvalidSetExpressionException>();
+      }
+
+      [Fact]
+      public void GetName_ExpressionRefersToAnotherObjectsPropertyWithSameName_ThrowsInvalidSetExpressionException()
+      {
+         var otherStub = new PropertyStub2();
+
+         Action getName = () => PropertyExpressionReader.GetName<PropertyStub, int>( ps => otherStub.ValidProperty );
 
          getName.ShouldThrow<InvalidSetExpressionException>();
       }

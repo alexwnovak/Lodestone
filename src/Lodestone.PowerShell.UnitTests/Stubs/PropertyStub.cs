@@ -15,5 +15,22 @@
          get;
          set;
       }
+
+      public int GetterOnlyProperty
+      {
+         get;
+      } = 0;
+
+      private int _setterOnlyBackingField;
+      public int SetterOnlyProperty
+      {
+         set => _setterOnlyBackingField = value;
+      }
+
+      public int ValidProperty
+      {
+         get;
+         set;
+      }
    }
 }

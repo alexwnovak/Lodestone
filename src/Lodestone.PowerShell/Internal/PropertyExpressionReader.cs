@@ -10,21 +10,36 @@ namespace Lodestone.PowerShell.Internal
       {
          if ( !( property.Body is MemberExpression ) )
          {
-            throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
+            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
+            throw new InvalidSetExpressionException( message );
          }
          
          var memberExpression = (MemberExpression) property.Body;
 
          if ( memberExpression.Member.MemberType != MemberTypes.Property )
          {
-            throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
+            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
+            throw new InvalidSetExpressionException( message );
+         }
+
+         if ( memberExpression.Member.DeclaringType != typeof( T ) )
+         {
+            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
+            throw new InvalidSetExpressionException( message );
          }
 
          var propertyInfo = memberExpression.Member.ReflectedType.GetProperty( memberExpression.Member.Name, BindingFlags.Public | BindingFlags.Instance );
 
          if ( propertyInfo == null )
          {
-            throw new InvalidSetExpressionException( Resources.InvalidSetExpression );
+            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
+            throw new InvalidSetExpressionException( message );
+         }
+
+         if ( propertyInfo.GetSetMethod() == null )
+         {
+            string message = string.Format( Resources.InvalidSetExpression, typeof( T ).FullName );
+            throw new InvalidSetExpressionException( message );
          }
 
          return memberExpression.Member.Name;
