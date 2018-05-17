@@ -13,7 +13,7 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       [Given( @"I host the ReturnFive cmdlet" )]
       public void GivenIHostTheReturnFiveCmdlet()
       {
-         _cmdletStepContext.Use<ReturnFiveCmdlet>();
+         _cmdletStepContext.Use<GetFive>();
       }
 
       [Given( @"I host the ConcatString cmdlet" )]

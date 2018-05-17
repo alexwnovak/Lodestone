@@ -3,7 +3,7 @@
 namespace Lodestone.PowerShell.AcceptanceTests.CmdletStubs
 {
    [Cmdlet( VerbsCommon.Get, "Five" )]
-   public class ReturnFiveCmdlet : Cmdlet
+   public class GetFive : Cmdlet
    {
       protected override void ProcessRecord()
       {
