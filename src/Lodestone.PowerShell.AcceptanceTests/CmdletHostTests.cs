@@ -11,5 +11,16 @@ namespace Lodestone.PowerShell.AcceptanceTests
       {
          CmdletHost.For<GetFive>().Run().Should().Be( 5 );
       }
+
+      [Fact]
+      public void CmdletReceivesAnArgumentAndWritesItToPipeline()
+      {
+         CmdletHost.For<ConcatString>()
+            .With( cs => cs.Value, "Argument" )
+            .Run()
+            .Should()
+            .Be( "Received Argument" );
+
+      }
    }
 }
