@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CmdletHostFeature.feature</DependentUpon>
     </Compile>
+    <Compile Include="CmdletHostTests.cs" />
     <Compile Include="CmdletStubs\ConcatString.cs" />
     <Compile Include="CmdletStubs\GetFive.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
