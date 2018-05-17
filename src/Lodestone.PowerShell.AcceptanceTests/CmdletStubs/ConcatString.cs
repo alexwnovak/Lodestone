@@ -3,7 +3,7 @@
 namespace Lodestone.PowerShell.AcceptanceTests.CmdletStubs
 {
    [Cmdlet( "Concat", "String" )]
-   public class ConcatStringCmdlet : Cmdlet
+   public class ConcatString : Cmdlet
    {
       [Parameter]
       public string Value
