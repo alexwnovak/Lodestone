@@ -19,13 +19,13 @@ namespace Lodestone.PowerShell.AcceptanceTests.Steps
       [Given( @"I host the ConcatString cmdlet" )]
       public void GivenIHostTheConcatStringCmdlet()
       {
-         _cmdletStepContext.Use<ConcatStringCmdlet>();
+         _cmdletStepContext.Use<ConcatString>();
       }
 
       [Given( @"I pass (.*) for the value" )]
       public void GivenIPassTestForTheValue( string value )
       {
-         _cmdletStepContext.Set<ConcatStringCmdlet, string>( csc => csc.Value, value );
+         _cmdletStepContext.Set<ConcatString, string>( csc => csc.Value, value );
       }
 
       [When( @"I run the cmdlet" )]
