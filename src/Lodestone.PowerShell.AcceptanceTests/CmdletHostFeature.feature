@@ -4,12 +4,6 @@
    So I can ensure that all the components integrate correctly
 
 @Acceptance
-Scenario: Running a cmdlet with a simple return value
-   Given I host the ReturnFive cmdlet
-   When I run the cmdlet
-   Then it should return 5
-
-@Acceptance
 Scenario: Running a cmdlet that does string concatenation
    Given I host the ConcatString cmdlet
    And I pass Test for the value
